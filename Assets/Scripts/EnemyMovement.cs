@@ -25,19 +25,19 @@ public class EnemyMovement : MonoBehaviour
             Vector2 jumpForce = new Vector2(xForce * xDirection, yForce);
             enemyRigidBody.AddForce(jumpForce);
         }
+
+        if (collision.GetContact(0).normal.x > .1f)
+        {
+            xDirection = 1;
+        }
+        if (collision.GetContact(0).normal.x < -.1f)
+        {
+            xDirection = -1;
+        }
     }
     // Update is called once per frame
     private void FixedUpdate()
     {
-        if (transform.position.x <= -8)
-        {
-            xDirection = 1;
-            enemyRigidBody.AddForce(Vector2.right * xForce);
-        }
-        if (transform.position.x >= 8)
-        {
-            xDirection = -1;
-            enemyRigidBody.AddForce(Vector2.left * xForce);
-        }
+        enemyRigidBody.AddForce(Vector2.right * xForce * xDirection);
     }
 }
