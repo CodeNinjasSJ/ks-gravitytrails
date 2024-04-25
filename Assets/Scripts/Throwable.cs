@@ -1,12 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Throwable : MonoBehaviour
 {
     public GameObject objectThrown;
     public Vector3 offset;
-    public int throwableCounter;
+    public Text collectableCounter;
 
     
 

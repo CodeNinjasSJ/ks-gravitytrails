@@ -6,15 +6,21 @@ public class Projectile : MonoBehaviour
 {
     public Throwable direction;
     public float speed;
+
+    private Vector3 dir;
     // Start is called before the first frame update
     void Start()
     {
-        direction = GameObject.FindGameObjectWithTag("Player").GetComponent<Throwable>();
+        dir  = direction.offset;
     }
 
     // Update is called once per frame
     void Update()
     {
-        transform.position += direction.offset * Time.deltaTime * speed;  
+        transform.position += dir * Time.deltaTime * speed;  
     }
-}
+    private void DestroyThrowable()
+    {
+        Destroy(gameObject);
+    }
+}               

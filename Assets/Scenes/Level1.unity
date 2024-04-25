@@ -1212,6 +1212,7 @@ GameObject:
   - component: {fileID: 398407851}
   - component: {fileID: 398407854}
   - component: {fileID: 398407853}
+  - component: {fileID: 398407852}
   m_Layer: 0
   m_Name: shuriken
   m_TagString: Untagged
@@ -1233,6 +1234,20 @@ Transform:
   m_Father: {fileID: 260552314}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &398407852
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 398407850}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a1a52529cc7b0994bb977850a96c0b18, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  direction: {fileID: 1754661055}
+  speed: 50
 --- !u!61 &398407853
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2238,7 +2253,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963194225}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -21.836826, y: 6.345841, z: -7.19}
+  m_LocalPosition: {x: -22.876663, y: 6.345842, z: -7.19}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -4112,7 +4127,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   objectThrown: {fileID: 398407850}
   offset: {x: 0, y: 0, z: 0}
-  throwableCounter: 0
+  collectableCounter: {fileID: 0}
 --- !u!1001 &1794802925
 PrefabInstance:
   m_ObjectHideFlags: 0
