@@ -8,8 +8,7 @@ public class Throwable : MonoBehaviour
     public GameObject objectThrown;
     public Vector3 offset;
     public Text collectableCounter;
-
-    
+    public float throwForce = 10f; // Add a throw force variable
 
     // Start is called before the first frame update
     void Start()
@@ -25,7 +24,12 @@ public class Throwable : MonoBehaviour
 
         if (Input.GetButtonDown("Fire1"))
         {
-            Instantiate(objectThrown, throwablePosition, transform.rotation);
+            GameObject thrownObject = Instantiate(objectThrown, throwablePosition, transform.rotation);
+            Rigidbody rb = thrownObject.GetComponent<Rigidbody>();
+            if (rb != null)
+            {
+                rb.AddForce(transform.forward * throwForce, ForceMode.VelocityChange);
+            }
         }
     }
 }

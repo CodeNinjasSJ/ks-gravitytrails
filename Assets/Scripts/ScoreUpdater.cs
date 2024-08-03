@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class Projectile : MonoBehaviour
+public class Updater : MonoBehaviour
 {
     public Throwable direction;
     public float speed;
@@ -16,13 +16,13 @@ public class Projectile : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        dir = direction.offset;
+        // Initialize any necessary variables here
     }
 
     // Update is called once per frame
     void Update()
     {
-        transform.position += dir * Time.deltaTime * speed;
+        // Update logic here
     }
 
     // Handle collisions
@@ -30,19 +30,19 @@ public class Projectile : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Player"))
         {
-            count++;
-
             if (counterText != null)
             {
-                counterText.text = ": " + count.ToString();
+                IncrementScore();
             }
 
             Destroy(gameObject);
         }
     }
 
-    private void DestroyThrowable()
+    // Method to increment the score
+    private void IncrementScore()
     {
-        Destroy(gameObject);
+        count++;
+        counterText.text = "Score: " + count.ToString();
     }
 }

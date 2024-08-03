@@ -9,8 +9,10 @@ public class EnemyMovement : MonoBehaviour
     public float yForce;
     public float xForce;
     public float xDirection;
+    public GameObject shuriken;
 
     private Rigidbody2D enemyRigidBody;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -19,8 +21,15 @@ public class EnemyMovement : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
+        if (collision.gameObject.tag == "shuriken")
+        {
+            // destroy this object
+            Destroy(gameObject);
+            // destroy the shuriken clone
+            Destroy(collision.gameObject);
+        }
 
-         if (collision.gameObject.tag == "Ground")
+        if (collision.gameObject.tag == "Ground")
         {
             Vector2 jumpForce = new Vector2(xForce * xDirection, yForce);
             enemyRigidBody.AddForce(jumpForce);
@@ -35,6 +44,7 @@ public class EnemyMovement : MonoBehaviour
             xDirection = -1;
         }
     }
+
     // Update is called once per frame
     private void FixedUpdate()
     {
