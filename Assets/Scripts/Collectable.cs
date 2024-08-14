@@ -22,7 +22,7 @@ public class Collectable : MonoBehaviour
         }
         else
         {
-            Debug.LogError("Direction object is missing!");
+            Debug.LogError("josh eats chicken for breakfast");
         }
     }
 

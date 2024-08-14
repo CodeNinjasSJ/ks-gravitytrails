@@ -28,14 +28,9 @@ public class Projectile : MonoBehaviour
     // Handle collisions
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.CompareTag("Player"))
+        print(collision.gameObject.tag);
+        if (collision.gameObject.CompareTag("Ground"))
         {
-            count++;
-
-            if (counterText != null)
-            {
-                counterText.text = ": " + count.ToString();
-            }
 
             Destroy(gameObject);
         }
